@@ -11,27 +11,6 @@ pacman::p_load(xts, sp, gstat, ggplot2, rmarkdown, reshape2, ggmap,
                coin, primes, epitools, maps, clipr, ggmap, twitteR, ROAuth,
                tm, rtweet, base64enc, httpuv, SnowballC, RColorBrewer, wordcloud, ggwordcloud)
 
-# Set up Tokens ===========================================================
-
-options(RCurlOptions = list(
-  verbose = FALSE, 
-  capath = system.file("CurlSSL", "cacert.pem", package = "RCurl"), 
-  ssl.verifypeer = FALSE))
-
-setup_twitter_oauth(
-  consumer_key = "JlZd7ZVFiKREFJLvRpl1wmgMm",
-  consumer_secret = "e0hFsUmCf84ISyZ9tZzdi78e9pQCnJzXWZmNghPR6JDP8TbpNx",
-  access_token = "1251344379186262016-QWjDYXV75enCF3J2Qvi3yZG8pux0Qi",
-  access_secret = "mSTOVQfA1S1mALIaWB4LYjLrR3EgYYFITu70Ny6SFNcgC")
-
-# rtweet ==================================================================
-tk <-    rtweet::create_token(
-  app = "nhiphamtwitter_reasearch",
-  consumer_key    = "JlZd7ZVFiKREFJLvRpl1wmgMm",
-  consumer_secret = "e0hFsUmCf84ISyZ9tZzdi78e9pQCnJzXWZmNghPR6JDP8TbpNx",
-  access_token    = "1251344379186262016-QWjDYXV75enCF3J2Qvi3yZG8pux0Qi",
-  access_secret   = "mSTOVQfA1S1mALIaWB4LYjLrR3EgYYFITu70Ny6SFNcgC",
-  set_renv        = FALSE)
 #1/Use rtweet library to search and download 1000 tweets written in English mention your Company’s name. Ignore retweets while searching.
 n <- 1000
 tweets.company <- search_tweets(q = 'Bethesda', n = n, token = tk,
